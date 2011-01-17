@@ -24,6 +24,7 @@ package org.sakaiproject.connector.fck;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -354,9 +355,13 @@ public class FCKConnectorServlet extends HttpServlet {
                if (dir.split("/").length == 2) {
                     List collections = new ArrayList();
                     map = ContentHostingService.getCollectionMap();
-                    if (map != null && map.keySet() != null) {
-                         collections.addAll(map.keySet());
+                    
+                    for (Object key : map.keySet()) {
+                    	if (!ContentHostingService.isInDropbox((String)key)) {
+                    		collections.add(key);
+                    	}
                     }
+                    
                     List extras = (List) SessionManager.getCurrentSession()
                          .getAttribute(FCK_EXTRA_COLLECTIONS_BASE + collectionBase);
                     if (extras != null) {
