@@ -65,15 +65,6 @@
       <scope>provided</scope>
     </dependency>            
     <dependency>
-      <groupId>org.sakaiproject.samigo</groupId>
-      <artifactId>samigo-services</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.sakaiproject.samigo</groupId>
-      <artifactId>samigo-api</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.sakaiproject.assignment</groupId>
       <artifactId>sakai-assignment-api</artifactId>
     </dependency>
